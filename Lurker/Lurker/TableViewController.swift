@@ -28,8 +28,10 @@ class TableViewController: UITableViewController {
             let array = json["data"]["children"].arrayValue
             for var object in array {
                 let title = object["data"]["title"].string!
+                let link = object["data"]["url"].string!
                 let post = Post()
                 post.title = title
+                post.link = link
                 self.model.append(post)
             }
             
@@ -39,6 +41,17 @@ class TableViewController: UITableViewController {
             
         }
         task.resume()
+    }
+    
+    let blogSegueIdentifier = "toWeb"
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! TableViewCell
+        if  segue.identifier == blogSegueIdentifier {
+            let destination = segue.destinationViewController as? WebViewer
+            destination!.link = cell.link
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +72,9 @@ class TableViewController: UITableViewController {
         // Configure the cell...
         let post = self.model[indexPath.row]
         cell.titleLabel.text = post.title
-
+        //save link string into cell
+        cell.link = post.link
+        
         return cell
     }
 

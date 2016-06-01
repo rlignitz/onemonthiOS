@@ -37,7 +37,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="LnA-o1-MVS" id="oIx-F8-puQ"/>
-                                    <segue destination="hS1-ud-XsF" kind="push" id="2y5-3G-SkH"/>
+                                    <segue destination="hS1-ud-XsF" kind="push" identifier="toWeb" id="2y5-3G-SkH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="925" y="439"/>
         </scene>
-        <!--View Controller-->
+        <!--Web Viewer-->
         <scene sceneID="iRj-KQ-lsK">
             <objects>
-                <viewController id="hS1-ud-XsF" sceneMemberID="viewController">
+                <viewController id="hS1-ud-XsF" customClass="WebViewer" customModule="Lurker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZVt-6n-8ha"/>
                         <viewControllerLayoutGuide type="bottom" id="ykR-YM-Ymn"/>
@@ -72,6 +72,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="BDG-9k-fYo"/>
+                    <connections>
+                        <outlet property="siteView" destination="cKa-7j-uDx" id="U7C-OJ-TgM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1d7-th-Ogk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

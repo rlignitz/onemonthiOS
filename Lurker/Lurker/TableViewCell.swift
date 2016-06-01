@@ -12,7 +12,7 @@ class TableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var titleLabel: UILabel!
-
+    var link: String!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
